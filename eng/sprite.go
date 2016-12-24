@@ -19,12 +19,12 @@ func (sprite *Sprite) SetTexture(texture *Texture) {
 	sprite.size.Y = int(texture.size.Y)
 }
 
-func (sprite *Sprite) SetPosition(x, y float32) {
-	sprite.position.X = x
-	sprite.position.Y = y
+func (sprite *Sprite) SetPosition(position Vector2f) {
+	sprite.position.X = position.X
+	sprite.position.Y = position.Y
 }
 
-func (sprite *Sprite) SetSize(width, height int) {
-	sprite.size.X = width
-	sprite.size.Y = height
+func (sprite *Sprite) SetSize(size Vector2i) {
+	sprite.size.X = size.X
+	sprite.size.Y = size.Y
 }

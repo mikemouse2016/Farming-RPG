@@ -19,8 +19,8 @@ func main() {
 
 	var teazel eng.Sprite
 	teazel.SetTexture(&teazelTexture)
-	teazel.SetPosition(300, 200)
-	teazel.SetSize(64, 64)
+	teazel.SetPosition(eng.Vector2f{300, 200})
+	teazel.SetSize(eng.Vector2i{64, 64})
 
 	running := true
 	for running {
