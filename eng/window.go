@@ -38,3 +38,7 @@ func (window *Window) Clear(red, green, blue, alpha uint8) {
 func (window *Window) Display() {
 	window.renderer.Present()
 }
+
+func (window *Window) Draw(drawer Drawer) {
+	drawer.draw(window)
+}

@@ -3,6 +3,7 @@ package main
 import (
 	"github.com/veandco/go-sdl2/sdl"
 	"github.com/veandco/go-sdl2/sdl_image"
+
 	"github.com/phestek/farming_rpg/eng"
 )
 
@@ -11,6 +12,15 @@ func main() {
 	img.Init(img.INIT_PNG)
 
 	window := eng.NewWindow("Farming RPG", 1280, 720)
+
+	var teazelTexture eng.Texture
+	teazelTexture.LoadFromFile("assets/teazel.png", window)
+	defer teazelTexture.Delete()
+
+	var teazel eng.Sprite
+	teazel.SetTexture(&teazelTexture)
+	teazel.SetPosition(300, 200)
+	teazel.SetSize(64, 64)
 
 	running := true
 	for running {
@@ -21,6 +31,7 @@ func main() {
 			}
 		}
 		window.Clear(100, 50, 200, 255)
+		window.Draw(&teazel)
 		window.Display()
 	}
 
