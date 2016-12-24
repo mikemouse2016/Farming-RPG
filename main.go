@@ -5,6 +5,7 @@ import (
 	"github.com/veandco/go-sdl2/sdl_image"
 
 	"github.com/phestek/farming_rpg/eng"
+	"fmt"
 )
 
 func main() {
@@ -25,14 +26,33 @@ func main() {
 	running := true
 	for running {
 		for event := sdl.PollEvent(); event != nil; event = sdl.PollEvent() {
-			switch event.(type) {
+			switch e := event.(type) {
 			case *sdl.QuitEvent:
 				running = false
+			case *sdl.KeyDownEvent:
+				if e.Repeat != 1 {
+					eng.Input().OnKeyPressed(e.Keysym.Sym)
+				}
+			case *sdl.KeyUpEvent:
+				eng.Input().OnKeyReleased(e.Keysym.Sym)
 			}
 		}
+
+		if eng.Input().IsKeyDown(sdl.K_a) {
+			fmt.Println("A")
+		}
+		if eng.Input().IsKeyPressed(sdl.K_s) {
+			fmt.Println("S")
+		}
+		if eng.Input().IsKeyReleased(sdl.K_d) {
+			fmt.Println("D")
+		}
+
 		window.Clear(eng.Color{100, 50, 200, 255})
 		window.Draw(&teazel)
 		window.Display()
+
+		eng.Input().Clear()
 	}
 
 	sdl.Quit()
