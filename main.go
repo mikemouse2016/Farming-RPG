@@ -30,7 +30,7 @@ func main() {
 				running = false
 			}
 		}
-		window.Clear(100, 50, 200, 255)
+		window.Clear(eng.Color{100, 50, 200, 255})
 		window.Draw(&teazel)
 		window.Display()
 	}

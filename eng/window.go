@@ -30,8 +30,8 @@ func (window *Window) Delete() {
 	window.renderer.Destroy()
 }
 
-func (window *Window) Clear(red, green, blue, alpha uint8) {
-	window.renderer.SetDrawColor(red, green, blue, alpha)
+func (window *Window) Clear(color Color) {
+	window.renderer.SetDrawColor(color.Red, color.Green, color.Blue, color.Alpha)
 	window.renderer.Clear()
 }
 
