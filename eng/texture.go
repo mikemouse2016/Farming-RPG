@@ -9,8 +9,7 @@ import (
 
 type Texture struct {
 	handle *sdl.Texture
-	w int32
-	h int32
+	size   sdl.Point
 }
 
 func (texture *Texture) LoadFromFile(filename string, window *Window) bool {
@@ -26,8 +25,8 @@ func (texture *Texture) LoadFromFile(filename string, window *Window) bool {
 		fmt.Printf("Failed to create texture \"%s\" from surface; reason: %s\n", filename, err)
 		return false
 	}
-	texture.w = image.W
-	texture.h = image.H
+	texture.size.X = image.W
+	texture.size.Y = image.H
 
 	return true
 }
