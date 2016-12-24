@@ -4,7 +4,7 @@ import "testing"
 
 func TestVector2i_Add(t *testing.T) {
 	vec1 := Vector2i{-123, 432}
-	vec2 := Vector2i{432,  523}
+	vec2 := Vector2i{432, 523}
 	vec3 := vec1.Add(vec2)
 	vec3Expected := Vector2i{309, 955}
 	if vec3.X != vec3Expected.X || vec3.Y != vec3Expected.Y {

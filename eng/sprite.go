@@ -3,9 +3,9 @@ package eng
 import "github.com/veandco/go-sdl2/sdl"
 
 type Sprite struct {
-	texture *Texture
+	texture  *Texture
 	position Vector2f
-	size Vector2i
+	size     Vector2i
 }
 
 func (sprite *Sprite) draw(window *Window) {
