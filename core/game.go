@@ -19,7 +19,7 @@ type Game struct {
 func (game *Game) Init() {
 	game.window = eng.NewWindow("Farming RPG", 1280, 720)
 	game.running = true
-	game.screens.Push(&screens.TestScreen{})
+	game.screens.Push(game.window, &screens.TestScreen{})
 }
 
 func (game *Game) Dispose() {

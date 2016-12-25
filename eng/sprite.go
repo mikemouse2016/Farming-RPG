@@ -24,6 +24,11 @@ func (sprite *Sprite) SetPosition(position Vector2f) {
 	sprite.position.Y = position.Y
 }
 
+func (sprite *Sprite) Move(offset Vector2f) {
+	sprite.position.X += offset.X
+	sprite.position.Y += offset.Y
+}
+
 func (sprite *Sprite) SetSize(size Vector2i) {
 	sprite.size.X = size.X
 	sprite.size.Y = size.Y
