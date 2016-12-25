@@ -7,16 +7,19 @@ import (
 	"github.com/veandco/go-sdl2/sdl"
 
 	"github.com/phestek/farming_rpg/eng"
+	"github.com/phestek/farming_rpg/screens"
 )
 
 type Game struct {
 	window  *eng.Window
 	running bool
+	screens screens.Stack
 }
 
 func (game *Game) Init() {
 	game.window = eng.NewWindow("Farming RPG", 1280, 720)
 	game.running = true
+	game.screens.Push(&screens.TestScreen{})
 }
 
 func (game *Game) Dispose() {
@@ -48,8 +51,8 @@ func (game *Game) Run() {
 			game.running = false
 		}
 
-		game.window.Clear(eng.ColorBlue())
-		game.window.Display()
+		game.screens.Peek().Update(delta)
+		game.screens.Peek().Draw(game.window)
 
 		eng.Input().Clear()
 	}
