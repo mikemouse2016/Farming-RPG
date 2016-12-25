@@ -40,5 +40,5 @@ func (window *Window) Display() {
 }
 
 func (window *Window) Draw(drawer Drawer) {
-	drawer.draw(window)
+	drawer.Draw(window)
 }

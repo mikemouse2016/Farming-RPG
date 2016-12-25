@@ -71,8 +71,8 @@ func intRectIntersection(left, right *IntRect) *IntRect {
 	return result
 }
 
-func (rect *IntRect) toSdlRect() sdl.Rect {
-	return sdl.Rect{X: int32(rect.X), Y: int32(rect.Y), W: int32(rect.W), H: int32(rect.H)}
+func (rect *IntRect) toSdlRect() *sdl.Rect {
+	return &sdl.Rect{X: int32(rect.X), Y: int32(rect.Y), W: int32(rect.W), H: int32(rect.H)}
 }
 
 func (rect *FloatRect) Contains(point Vector2f) bool {

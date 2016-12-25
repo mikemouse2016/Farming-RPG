@@ -2,15 +2,17 @@ package eng
 
 import "github.com/veandco/go-sdl2/sdl"
 
+// TODO: Handle srcrect.
 type Sprite struct {
 	texture  *Texture
 	position Vector2f
 	size     Vector2i
 }
 
-func (sprite *Sprite) draw(window *Window) {
-	window.renderer.Copy(sprite.texture.handle, nil,
-		&sdl.Rect{int32(sprite.position.X), int32(sprite.position.Y), int32(sprite.size.X), int32(sprite.size.Y)})
+func (sprite *Sprite) Draw(window *Window) {
+	window.renderer.Copy(sprite.texture.handle, nil, &sdl.Rect{
+		int32(sprite.position.X), int32(sprite.position.Y), int32(sprite.size.X), int32(sprite.size.Y),
+	})
 }
 
 func (sprite *Sprite) SetTexture(texture *Texture) {
