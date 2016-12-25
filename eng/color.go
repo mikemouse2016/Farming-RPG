@@ -11,7 +11,7 @@ type Color struct {
 func ColorBlack() Color       { return Color{0, 0, 0, 255} }
 func ColorWhite() Color       { return Color{255, 255, 255, 255} }
 func ColorRed() Color         { return Color{255, 0, 0, 255} }
-func ColorGreen() Color       { return Color{0, 255, 0, 255 }}
+func ColorGreen() Color       { return Color{0, 255, 0, 255} }
 func ColorBlue() Color        { return Color{0, 0, 255, 255} }
 func ColorYellow() Color      { return Color{255, 255, 0, 255} }
 func ColorMagenta() Color     { return Color{255, 0, 255, 255} }
