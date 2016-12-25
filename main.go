@@ -1,11 +1,17 @@
 package main
 
 import (
+	"runtime"
+
 	"github.com/veandco/go-sdl2/sdl"
 	"github.com/veandco/go-sdl2/sdl_image"
 
 	"github.com/phestek/farming_rpg/core"
 )
+
+func init() {
+	runtime.LockOSThread()
+}
 
 func main() {
 	sdl.Init(sdl.INIT_AUDIO | sdl.INIT_TIMER | sdl.INIT_VIDEO)
