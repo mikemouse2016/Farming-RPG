@@ -23,6 +23,9 @@ func (game *Game) Init() {
 }
 
 func (game *Game) Dispose() {
+	for game.screens.Size() != 0 {
+		game.screens.Pop()
+	}
 	game.window.Delete()
 }
 

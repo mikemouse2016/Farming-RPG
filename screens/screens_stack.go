@@ -17,14 +17,15 @@ func (stack *Stack) Size() int {
 func (stack *Stack) Push(screen Screener) {
 	stack.top = &StackItem{screen: screen, next: stack.top}
 	stack.size++
+	stack.top.screen.Init()
 }
 
-func (stack *Stack) Pop() (value Screener) {
+func (stack *Stack) Pop() {
 	if stack.size > 0 {
-		value, stack.top = stack.top.screen, stack.top.next
+		stack.top.screen.Dispose()
+		stack.top = stack.top.next
 		stack.size--
 	}
-	return
 }
 
 func (stack *Stack) Peek() (screen Screener) {
