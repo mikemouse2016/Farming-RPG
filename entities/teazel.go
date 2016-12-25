@@ -16,7 +16,7 @@ func NewTeazel(window *eng.Window, position eng.Vector2f) (teazel *Teazel) {
 	teazel = new(Teazel)
 	teazel.texture.LoadFromFile("assets/teazel.png", window)
 	teazel.sprite.SetTexture(&teazel.texture)
-	teazel.sprite.Position  = position
+	teazel.sprite.Position = position
 	teazel.sprite.Size = eng.Vector2i{64, 64}
 	return
 }
