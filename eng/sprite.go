@@ -2,36 +2,31 @@ package eng
 
 import "github.com/veandco/go-sdl2/sdl"
 
-// TODO: Handle srcrect.
 type Sprite struct {
-	texture  *Texture
-	position Vector2f
-	size     Vector2i
+	texture     *Texture
+	TextureRect IntRect
+	Position    Vector2f
+	Size        Vector2i
 }
 
 func (sprite *Sprite) Draw(window *Window) {
-	window.renderer.Copy(sprite.texture.handle, nil, &sdl.Rect{
-		int32(sprite.position.X), int32(sprite.position.Y), int32(sprite.size.X), int32(sprite.size.Y),
+	window.renderer.Copy(sprite.texture.handle, sprite.TextureRect.toSdlRect(), &sdl.Rect{
+		int32(sprite.Position.X), int32(sprite.Position.Y), int32(sprite.Size.X), int32(sprite.Size.Y),
 	})
 }
 
 func (sprite *Sprite) SetTexture(texture *Texture) {
 	sprite.texture = texture
-	sprite.size.X = int(texture.size.X)
-	sprite.size.Y = int(texture.size.Y)
+	sprite.Size.X, sprite.Size.Y = int(texture.size.X), int(texture.size.Y)
+	// Once texture is set, reset TextureRect XY(0, 0) and size to texture size.
+	sprite.TextureRect.W, sprite.TextureRect.H = sprite.Size.X, sprite.Size.Y
 }
 
-func (sprite *Sprite) SetPosition(position Vector2f) {
-	sprite.position.X = position.X
-	sprite.position.Y = position.Y
+func (sprite *Sprite) SetTextureRect(rect IntRect) {
+	sprite.TextureRect = rect
 }
 
 func (sprite *Sprite) Move(offset Vector2f) {
-	sprite.position.X += offset.X
-	sprite.position.Y += offset.Y
-}
-
-func (sprite *Sprite) SetSize(size Vector2i) {
-	sprite.size.X = size.X
-	sprite.size.Y = size.Y
+	sprite.Position.X += offset.X
+	sprite.Position.Y += offset.Y
 }

@@ -34,8 +34,8 @@ func (batch *SpriteBatch) Draw(window *Window) {
 func (batch *SpriteBatch) Append(sprite *Sprite) {
 	batch.window.renderer.SetRenderTarget(batch.texture)
 	// TODO: Handle srcrect.
-	batch.window.renderer.Copy(sprite.texture.handle, nil, &sdl.Rect {
-		int32(sprite.position.X), int32(sprite.position.Y), int32(sprite.size.X), int32(sprite.size.Y),
+	batch.window.renderer.Copy(sprite.texture.handle, sprite.TextureRect.toSdlRect(), &sdl.Rect {
+		int32(sprite.Position.X), int32(sprite.Position.Y), int32(sprite.Size.X), int32(sprite.Size.Y),
 	})
 	batch.window.renderer.SetRenderTarget(nil)
 }
