@@ -1,11 +1,13 @@
 package main
 
 import (
+	"fmt"
+	"time"
+
 	"github.com/veandco/go-sdl2/sdl"
 	"github.com/veandco/go-sdl2/sdl_image"
 
 	"github.com/phestek/farming_rpg/eng"
-	"fmt"
 )
 
 func main() {
@@ -23,6 +25,7 @@ func main() {
 	teazel.SetPosition(eng.Vector2f{300, 200})
 	teazel.SetSize(eng.Vector2i{64, 64})
 
+	clock := time.Now()
 	running := true
 	for running {
 		for event := sdl.PollEvent(); event != nil; event = sdl.PollEvent() {
@@ -37,6 +40,11 @@ func main() {
 				eng.Input().OnKeyReleased(e.Keysym.Sym)
 			}
 		}
+
+		elapsed := time.Since(clock)
+		clock = time.Now()
+		delta := float32(elapsed) / float32(time.Second)
+		fmt.Printf("FPS: %f\r", 1.0 / delta)
 
 		if eng.Input().IsKeyDown(sdl.K_a) {
 			fmt.Println("A")
