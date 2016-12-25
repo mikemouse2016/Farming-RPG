@@ -44,7 +44,7 @@ func main() {
 		elapsed := time.Since(clock)
 		clock = time.Now()
 		delta := float32(elapsed) / float32(time.Second)
-		fmt.Printf("FPS: %f\r", 1.0 / delta)
+		fmt.Printf("FPS: %f\r", 1.0/delta)
 
 		if eng.Input().IsKeyDown(sdl.K_a) {
 			fmt.Println("A")
