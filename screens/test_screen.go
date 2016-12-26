@@ -1,8 +1,6 @@
 package screens
 
 import (
-	"fmt"
-
 	"github.com/phestek/farming_rpg/eng"
 	"github.com/phestek/farming_rpg/entities"
 )
@@ -13,13 +11,11 @@ type TestScreen struct {
 }
 
 func (screen *TestScreen) Init(window *eng.Window) {
-	fmt.Println("TestScreen.Init()")
 	screen.entities = append(screen.entities, entities.NewTeazel(window, eng.Vector2f{300, 200}))
 	screen.testBatch = eng.NewSpriteBatch(window, eng.Vector2i{256, 256})
 }
 
 func (screen *TestScreen) Dispose() {
-	fmt.Println("TestScreen.Dispose()")
 	screen.entities = nil
 }
 

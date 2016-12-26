@@ -1,8 +1,9 @@
 package eng
 
 import (
-	"github.com/veandco/go-sdl2/sdl"
 	"sync"
+
+	"github.com/veandco/go-sdl2/sdl"
 )
 
 type input struct {
