@@ -90,9 +90,10 @@ func (vector Vector2f) DivByValue(value float32) Vector2f {
 }
 
 func (vector Vector2f) Length() float32 {
-	length2 := math.Pow(float64(vector.X), 2) + math.Pow(float64(vector.Y), 2)
-	length := float32(math.Sqrt(length2))
-	return length
+	length2 := (vector.X * vector.X) + (vector.Y * vector.Y)
+	length := math.Sqrt(float64(length2))
+	return float32(length)
+
 }
 
 func (vector Vector2f) Normalize() Vector2f {
