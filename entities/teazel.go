@@ -9,7 +9,6 @@ import (
 type Teazel struct {
 	texture  eng.Texture
 	sprite   eng.Sprite
-	velocity eng.Vector2f
 }
 
 const TEAZEL_MOVE_SPEED = 250
@@ -23,27 +22,28 @@ func NewTeazel(window *eng.Window, position eng.Vector2f) (teazel *Teazel) {
 }
 
 func (teazel *Teazel) Update(delta float32) {
+	var velocity eng.Vector2f
+
 	if eng.Input().IsKeyDown(sdl.K_a) {
-		teazel.velocity.X = -1
+		velocity.X = -1
 	} else if eng.Input().IsKeyDown(sdl.K_d) {
-		teazel.velocity.X = 1
+		velocity.X = 1
 	} else {
-		teazel.velocity.X = 0
+		velocity.X = 0
 	}
 	if eng.Input().IsKeyDown(sdl.K_w) {
-		teazel.velocity.Y = -1
+		velocity.Y = -1
 	} else if eng.Input().IsKeyDown(sdl.K_s) {
-		teazel.velocity.Y = 1
+		velocity.Y = 1
 	} else {
-		teazel.velocity.Y = 0
+		velocity.Y = 0
 	}
 
-	var moveOffset eng.Vector2f = teazel.velocity
-	if moveOffset.X != 0 && moveOffset.Y != 0 {
-		moveOffset = moveOffset.Normalize()
+	if velocity.X != 0 && velocity.Y != 0 {
+		velocity = velocity.Normalize()
 	}
 
-	teazel.sprite.Move(moveOffset.MulByValue(delta * TEAZEL_MOVE_SPEED))
+	teazel.sprite.Move(velocity.MulByValue(delta * TEAZEL_MOVE_SPEED))
 }
 
 func (teazel *Teazel) Draw(window *eng.Window) {
