@@ -7,8 +7,8 @@ import (
 )
 
 type Teazel struct {
-	texture  eng.Texture
-	sprite   eng.Sprite
+	texture eng.Texture
+	sprite  eng.Sprite
 }
 
 const TEAZEL_MOVE_SPEED = 250
