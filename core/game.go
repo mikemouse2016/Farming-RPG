@@ -35,18 +35,7 @@ func (game *Game) Dispose() {
 func (game *Game) Run() {
 	clock := time.Now()
 	for game.running {
-		for event := sdl.PollEvent(); event != nil; event = sdl.PollEvent() {
-			switch e := event.(type) {
-			case *sdl.QuitEvent:
-				game.running = false
-			case *sdl.KeyDownEvent:
-				if e.Repeat != 1 {
-					eng.Input().OnKeyPressed(e.Keysym.Sym)
-				}
-			case *sdl.KeyUpEvent:
-				eng.Input().OnKeyReleased(e.Keysym.Sym)
-			}
-		}
+		game.eventsLoop()
 
 		elapsed := time.Since(clock)
 		clock = time.Now()
@@ -61,5 +50,20 @@ func (game *Game) Run() {
 		game.screens.Peek().Draw(game.window)
 
 		eng.Input().Clear()
+	}
+}
+
+func (game *Game) eventsLoop() {
+	for event := sdl.PollEvent(); event != nil; event = sdl.PollEvent() {
+		switch e := event.(type) {
+		case *sdl.QuitEvent:
+			game.running = false
+		case *sdl.KeyDownEvent:
+			if e.Repeat != 1 {
+				eng.Input().OnKeyPressed(e.Keysym.Sym)
+			}
+		case *sdl.KeyUpEvent:
+			eng.Input().OnKeyReleased(e.Keysym.Sym)
+		}
 	}
 }
