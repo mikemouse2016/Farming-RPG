@@ -1,6 +1,6 @@
 package entities
 
-import "github.com/phestek/farming_rpg/eng"
+import "github.com/phestek/farming-rpg/eng"
 
 type Entitier interface {
 	Update(delta float32)

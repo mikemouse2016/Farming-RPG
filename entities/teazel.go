@@ -3,7 +3,7 @@ package entities
 import (
 	"github.com/veandco/go-sdl2/sdl"
 
-	"github.com/phestek/farming_rpg/eng"
+	"github.com/phestek/farming-rpg/eng"
 )
 
 type Teazel struct {

@@ -1,8 +1,8 @@
 package screens
 
 import (
-	"github.com/phestek/farming_rpg/eng"
-	"github.com/phestek/farming_rpg/entities"
+	"github.com/phestek/farming-rpg/eng"
+	"github.com/phestek/farming-rpg/entities"
 )
 
 type TestScreen struct {

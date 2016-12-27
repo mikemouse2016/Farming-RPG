@@ -1,6 +1,6 @@
 package screens
 
-import "github.com/phestek/farming_rpg/eng"
+import "github.com/phestek/farming-rpg/eng"
 
 type Screener interface {
 	Init(window *eng.Window)

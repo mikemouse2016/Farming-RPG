@@ -6,7 +6,7 @@ import (
 	"github.com/veandco/go-sdl2/sdl"
 	"github.com/veandco/go-sdl2/sdl_image"
 
-	"github.com/phestek/farming_rpg/core"
+	"github.com/phestek/farming-rpg/core"
 	"github.com/veandco/go-sdl2/sdl_mixer"
 )
 

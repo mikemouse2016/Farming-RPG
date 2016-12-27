@@ -6,8 +6,8 @@ import (
 
 	"github.com/veandco/go-sdl2/sdl"
 
-	"github.com/phestek/farming_rpg/eng"
-	"github.com/phestek/farming_rpg/screens"
+	"github.com/phestek/farming-rpg/eng"
+	"github.com/phestek/farming-rpg/screens"
 )
 
 type Game struct {
