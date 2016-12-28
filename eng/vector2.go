@@ -1,6 +1,9 @@
 package eng
 
-import "math"
+import (
+	"github.com/veandco/go-sdl2/sdl"
+	"math"
+)
 
 type Vector2i struct {
 	X int
@@ -39,6 +42,10 @@ func (vector Vector2i) Div(other Vector2i) Vector2i {
 
 func (vector Vector2i) DivByValue(value int) Vector2i {
 	return Vector2i{X: vector.X / value, Y: vector.Y / value}
+}
+
+func (vector Vector2i) toSdlPoint() *sdl.Point {
+	return &sdl.Point{int32(vector.X), int32(vector.Y)}
 }
 
 func (vector Vector2u) Add(other Vector2u) Vector2u {

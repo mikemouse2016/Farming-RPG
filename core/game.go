@@ -17,7 +17,7 @@ type Game struct {
 }
 
 func (game *Game) Init() {
-	game.window = eng.NewWindow("Farming RPG", 1280, 720)
+	game.window = eng.NewWindow("Farming RPG", 800, 600)
 	game.running = true
 
 	eng.TexturesAtlas().Add("teazel", "assets/teazel.png", game.window)

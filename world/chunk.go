@@ -14,7 +14,7 @@ type Chunk struct {
 
 const (
 	CHUNK_SIZE = 16
-	TILE_SIZE   = 32
+	TILE_SIZE  = 32
 
 	TILESET_WIDTH    = 512
 	TILES_IN_TILESET = 256
@@ -27,9 +27,9 @@ func (chunk *Chunk) Draw(window *eng.Window) {
 func (chunk *Chunk) Redraw() {
 	for x := 0; x < CHUNK_SIZE; x++ {
 		for y := 0; y < CHUNK_SIZE; y++ {
-			tileNumber := chunk.Tiles[x + y * CHUNK_SIZE]
+			tileNumber := chunk.Tiles[x+y*CHUNK_SIZE]
 			// Find tileset name.
-			tilesetName := "tileset" + strconv.Itoa(tileNumber / TILES_IN_TILESET)
+			tilesetName := "tileset" + strconv.Itoa(tileNumber/TILES_IN_TILESET)
 			// Find tile position in tileset.
 			tileNumber = tileNumber % 256
 			tx := tileNumber % (TILESET_WIDTH / TILE_SIZE)

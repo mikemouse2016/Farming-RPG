@@ -11,13 +11,13 @@ type Teazel struct {
 	sprite  eng.Sprite
 }
 
-const TEAZEL_MOVE_SPEED = 250
+const TEAZEL_MOVE_SPEED = 180
 
 func NewTeazel(window *eng.Window, position eng.Vector2f) (teazel *Teazel) {
 	teazel = new(Teazel)
 	teazel.sprite.SetTexture(eng.TexturesAtlas().GetByName("teazel"))
 	teazel.sprite.Position = position
-	teazel.sprite.Size = eng.Vector2i{64, 64}
+	teazel.sprite.Size = eng.Vector2i{32, 32}
 	return
 }
 
