@@ -21,6 +21,7 @@ func (game *Game) Init() {
 	game.running = true
 
 	eng.TexturesAtlas().Add("teazel", "assets/teazel.png", game.window)
+	eng.TexturesAtlas().Add("tileset0", "assets/tileset0.png", game.window)
 
 	game.screens.Push(game.window, &screens.TestScreen{})
 }

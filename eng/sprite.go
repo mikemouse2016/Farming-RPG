@@ -22,7 +22,8 @@ func (sprite *Sprite) SetTexture(texture *Texture) {
 	sprite.TextureRect.W, sprite.TextureRect.H = sprite.Size.X, sprite.Size.Y
 }
 
-func (sprite *Sprite) SetTextureRect(rect IntRect) {
+func (sprite *Sprite) SetTextureAndRect(texture *Texture, rect IntRect) {
+	sprite.SetTexture(texture)
 	sprite.TextureRect = rect
 }
 
