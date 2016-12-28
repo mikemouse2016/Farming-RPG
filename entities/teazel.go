@@ -49,3 +49,7 @@ func (teazel *Teazel) Update(delta float32) {
 func (teazel *Teazel) Draw(window *eng.Window) {
 	window.Draw(&teazel.sprite)
 }
+
+func (teazel *Teazel) GetTransform() (*eng.Transform) {
+	return &teazel.sprite.Transform
+}

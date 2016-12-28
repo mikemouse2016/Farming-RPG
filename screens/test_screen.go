@@ -18,7 +18,7 @@ func (screen *TestScreen) Init(window *eng.Window) {
 
 	window.Camera = &screen.camera
 
-	screen.entities = append(screen.entities, entities.NewTeazel(eng.Vector2f{300, 200}))
+	screen.entities = append(screen.entities, entities.NewTeazel(eng.Vector2f{240, 240}))
 
 	screen.testChunk.TilesBatch = eng.NewSpriteBatch(window, eng.Vector2i{512, 512})
 	screen.testChunk.Tiles = [256]int{
@@ -50,6 +50,11 @@ func (screen *TestScreen) Update(delta float32) {
 	for i := 0; i < len(screen.entities); i++ {
 		screen.entities[i].Update(delta)
 	}
+
+	teazelPosition := screen.entities[0].GetTransform().Position
+	teazelSize := screen.entities[0].GetTransform().Size
+	screen.camera.SetCenter(
+		eng.Vector2f{teazelPosition.X + float32(teazelSize.X / 2), teazelPosition.Y + float32(teazelSize.Y / 2)})
 }
 
 func (screen *TestScreen) Draw(window *eng.Window) {
