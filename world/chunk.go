@@ -4,7 +4,6 @@ import (
 	"strconv"
 
 	"github.com/phestek/farming-rpg/eng"
-	"fmt"
 )
 
 type Chunk struct {
@@ -32,13 +31,9 @@ func (chunk *Chunk) Redraw() {
 			// Find tileset name.
 			tilesetName := "tileset" + strconv.Itoa(tileNumber / TILES_IN_TILESET)
 			// Find tile position in tileset.
-			if tileNumber > TILES_IN_TILESET {
-				tileNumber = tileNumber / 256
-			}
-			fmt.Printf("tile: %d ", tileNumber)
+			tileNumber = tileNumber % 256
 			tx := tileNumber % (TILESET_WIDTH / TILE_SIZE)
 			ty := tileNumber / (TILESET_WIDTH / TILE_SIZE)
-			fmt.Printf("tile: %d, %d\n", tx, ty)
 			var tile eng.Sprite
 			tile.SetTextureAndRect(
 				eng.TexturesAtlas().GetByName(tilesetName),
