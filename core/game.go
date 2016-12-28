@@ -57,14 +57,23 @@ func (game *Game) Run() {
 func (game *Game) eventsLoop() {
 	for event := sdl.PollEvent(); event != nil; event = sdl.PollEvent() {
 		switch e := event.(type) {
+
 		case *sdl.QuitEvent:
 			game.running = false
+
 		case *sdl.KeyDownEvent:
 			if e.Repeat != 1 {
 				eng.Input().OnKeyPressed(e.Keysym.Sym)
 			}
+
 		case *sdl.KeyUpEvent:
 			eng.Input().OnKeyReleased(e.Keysym.Sym)
+
+		case *sdl.WindowEvent:
+			if e.Event == sdl.WINDOWEVENT_RESIZED {
+				game.screens.Peek().Resize(int(e.Data1), int(e.Data2))
+			}
+
 		}
 	}
 }

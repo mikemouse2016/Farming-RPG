@@ -12,7 +12,7 @@ func NewWindow(title string, width int, height int) *Window {
 	var err error
 
 	window.handle, err = sdl.CreateWindow(title, sdl.WINDOWPOS_CENTERED, sdl.WINDOWPOS_CENTERED, width, height,
-		sdl.WINDOW_SHOWN)
+		sdl.WINDOW_SHOWN | sdl.WINDOW_RESIZABLE)
 	if err != nil {
 		panic(err)
 	}

@@ -7,4 +7,5 @@ type Screener interface {
 	Dispose()
 	Update(delta float32)
 	Draw(window *eng.Window)
+	Resize(width int, height int)
 }

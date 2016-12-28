@@ -4,6 +4,7 @@ import (
 	"github.com/phestek/farming-rpg/eng"
 	"github.com/phestek/farming-rpg/entities"
 	"github.com/phestek/farming-rpg/world"
+	"fmt"
 )
 
 type TestScreen struct {
@@ -52,4 +53,9 @@ func (screen *TestScreen) Draw(window *eng.Window) {
 		screen.entities[i].Draw(window)
 	}
 	window.Display()
+}
+
+func (screen *TestScreen) Resize(width int, height int) {
+	// TODO: implement this.
+	fmt.Printf("New window size: %d %d\n", width, height)
 }
