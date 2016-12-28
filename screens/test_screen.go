@@ -12,7 +12,7 @@ type TestScreen struct {
 }
 
 func (screen *TestScreen) Init(window *eng.Window) {
-	screen.entities = append(screen.entities, entities.NewTeazel(window, eng.Vector2f{300, 200}))
+	screen.entities = append(screen.entities, entities.NewTeazel(eng.Vector2f{300, 200}))
 	screen.testChunk.TilesBatch = eng.NewSpriteBatch(window, eng.Vector2i{512, 512})
 	screen.testChunk.Tiles = [256]int{
 		1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,

@@ -13,7 +13,7 @@ type Teazel struct {
 
 const TEAZEL_MOVE_SPEED = 180
 
-func NewTeazel(window *eng.Window, position eng.Vector2f) (teazel *Teazel) {
+func NewTeazel(position eng.Vector2f) (teazel *Teazel) {
 	teazel = new(Teazel)
 	teazel.sprite.SetTexture(eng.TexturesAtlas().GetByName("teazel"))
 	teazel.sprite.Position = position
