@@ -1,7 +1,6 @@
 package core
 
 import (
-	"fmt"
 	"time"
 
 	"github.com/veandco/go-sdl2/sdl"
@@ -41,7 +40,6 @@ func (game *Game) Run() {
 		elapsed := time.Since(clock)
 		clock = time.Now()
 		delta := float32(elapsed) / float32(time.Second)
-		fmt.Printf("FPS: %f\r", 1.0/delta)
 
 		if eng.Input().IsKeyReleased(sdl.K_ESCAPE) {
 			game.running = false
