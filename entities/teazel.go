@@ -16,8 +16,8 @@ const TEAZEL_MOVE_SPEED = 180
 func NewTeazel(position eng.Vector2f) (teazel *Teazel) {
 	teazel = new(Teazel)
 	teazel.sprite.SetTexture(eng.TexturesAtlas().GetByName("teazel"))
-	teazel.sprite.Position = position
-	teazel.sprite.Size = eng.Vector2i{32, 32}
+	teazel.sprite.Transform.Position = position
+	teazel.sprite.Transform.Size = eng.Vector2i{32, 32}
 	return
 }
 

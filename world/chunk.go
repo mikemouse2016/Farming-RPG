@@ -38,8 +38,8 @@ func (chunk *Chunk) Redraw() {
 			tile.SetTextureAndRect(
 				eng.TexturesAtlas().GetByName(tilesetName),
 				eng.IntRect{tx * TILE_SIZE, ty * TILE_SIZE, TILE_SIZE, TILE_SIZE})
-			tile.Position = eng.Vector2f{X: float32(x * TILE_SIZE), Y: float32(y * TILE_SIZE)}
-			tile.Size = eng.Vector2i{32, 32}
+			tile.Transform.Position = eng.Vector2f{X: float32(x * TILE_SIZE), Y: float32(y * TILE_SIZE)}
+			tile.Transform.Size = eng.Vector2i{32, 32}
 			chunk.TilesBatch.Append(&tile)
 		}
 	}

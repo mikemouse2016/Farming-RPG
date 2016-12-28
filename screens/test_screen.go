@@ -7,12 +7,19 @@ import (
 )
 
 type TestScreen struct {
+	camera    eng.Camera
 	entities  []entities.Entitier
 	testChunk world.Chunk
 }
 
 func (screen *TestScreen) Init(window *eng.Window) {
+	screen.camera.Transform.Size = window.Size()
+	screen.camera.Transform.Position.X = 32
+
+	window.Camera = &screen.camera
+
 	screen.entities = append(screen.entities, entities.NewTeazel(eng.Vector2f{300, 200}))
+
 	screen.testChunk.TilesBatch = eng.NewSpriteBatch(window, eng.Vector2i{512, 512})
 	screen.testChunk.Tiles = [256]int{
 		1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,

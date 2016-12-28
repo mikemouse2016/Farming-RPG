@@ -5,6 +5,7 @@ import "github.com/veandco/go-sdl2/sdl"
 type Window struct {
 	handle   *sdl.Window
 	renderer *sdl.Renderer
+	Camera   *Camera
 }
 
 func NewWindow(title string, width int, height int) *Window {
@@ -12,7 +13,7 @@ func NewWindow(title string, width int, height int) *Window {
 	var err error
 
 	window.handle, err = sdl.CreateWindow(title, sdl.WINDOWPOS_CENTERED, sdl.WINDOWPOS_CENTERED, width, height,
-		sdl.WINDOW_SHOWN | sdl.WINDOW_RESIZABLE)
+		sdl.WINDOW_SHOWN|sdl.WINDOW_RESIZABLE)
 	if err != nil {
 		panic(err)
 	}
@@ -40,5 +41,14 @@ func (window *Window) Display() {
 }
 
 func (window *Window) Draw(drawer Drawer) {
-	drawer.Draw(window)
+	if window.Camera != nil {
+		drawer.Draw(window, window.Camera.Transform.Position)
+	} else {
+		drawer.Draw(window, Vector2f{0, 0})
+	}
+}
+
+func (window *Window) Size() Vector2i {
+	w, h := window.handle.GetSize()
+	return Vector2i{w, h}
 }
