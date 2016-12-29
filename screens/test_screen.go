@@ -67,5 +67,5 @@ func (screen *TestScreen) Draw(window *eng.Window) {
 }
 
 func (screen *TestScreen) Resize(width int, height int) {
-	// TODO: implement this.
+	screen.camera.Resize(width, height);
 }
